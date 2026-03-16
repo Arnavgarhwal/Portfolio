@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arnav's Sci-Fi Scrollytelling Portfolio
 
-## Getting Started
+A premium, interactive digital portfolio built for maximum performance and visual impact. This project features a 3D-like "Scrollytelling" image sequence synced perfectly with the user's scroll position, a glassmorphism UI, and fluid animations.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** [Next.js 14 (App Router)](https://nextjs.org/)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + Custom CSS (`globals.css`)
+- **Animation:** Framer Motion
+- **Rendering:** HTML5 Canvas (Hardware-accelerated image sequence scrubbing)
+- **Icons:** Lucide React
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Scroll-Linked Image Sequence:** The background features an HTML5 Canvas that loads an optimized WebP sequence. As the user scrolls down the page, `framer-motion` hooks map the scroll progress to scrub through 119 individual image frames, creating a cinematic 3D scroll effect.
+2. **Dynamic Parallax Overlays:** Text perfectly tracks and animates in relation to the canvas scrubbing, fading in left, center, and right.
+3. **Admin Dashboard (Local Storage):** A hidden admin panel allows the owner to log in and dynamically mutate (Add, Edit, Delete) the list of their projects displayed on the frontend grid natively within the browser using `localStorage`.
+4. **Custom Loader:** A full-screen geometric abstract loading sequence that halts user interaction until the image memory buffer is fully loaded.
+5. **Glassmorphism Projects Grid:** A sleek project overview section utilizing background blurs and amber glowing hover states.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup & Running Locally
 
-## Learn More
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture Highlights
 
-## Deploy on Vercel
+This project intentionally limits dependencies to maintain high FPS during the scroll effect. The image sequence relies purely on `requestAnimationFrame` scaling over `window.innerWidth` and height to ensure "cover-like" responsiveness natively without expensive DOM repaints.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Created by [Arnav Garhwal](https://github.com/Arnavgarhwal)*
