@@ -22,7 +22,8 @@ export default function ScrollyCanvas() {
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
       const num = i.toString().padStart(3, "0");
-      img.src = `/sequence/frame_${num}.png`;
+      const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
+      img.src = `${basePath}/sequence/frame_${num}.png`;
       img.onload = () => {
         loadedCount++;
         if (loadedCount === FRAME_COUNT) {

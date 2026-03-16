@@ -8,6 +8,7 @@ import AdminLogin from "./AdminLogin";
 
 export default function Contact() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -77,15 +78,16 @@ export default function Contact() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link 
-              href="/sequence/resume.pdf"
+            <a 
+              href={`${basePath}/sequence/resume.pdf`}
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-2.5 bg-[#FF9541] hover:bg-[#ffb070] text-black font-semibold rounded-full transition-colors shadow-[0_0_15px_rgba(255,149,65,0.3)]"
             >
               View Resume <ExternalLink size={16} />
-            </Link>
+            </a>
             <a 
-              href="/sequence/resume.pdf"
+              href={`${basePath}/sequence/resume.pdf`}
               download="Arnav_Garhwal_Resume.pdf"
               className="px-6 py-2.5 bg-transparent border border-white/10 hover:bg-white/5 text-white font-medium rounded-full transition-colors"
             >
